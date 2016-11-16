@@ -11,12 +11,7 @@ if __name__ == '__main__':
     eta = 0.1
     n = 10
     w = random.rand(2)
-    
-    def function(x):
-        if lambda:x<0:
-            return 0
-        else:
-            return 1
+    lamb = lambda x: 0 if x < 0 else 1
     
     def train():
         global w
@@ -25,14 +20,13 @@ if __name__ == '__main__':
             x, val = choice(train_set)
             result = dot(w,x)
             #get the val
-            error = int(val) - function(result)
+            error = int(val) - lamb(result)
             w += eta * error * x
             
     def query(x):
         global w
         result = dot(x, w)
-        print result
-        return function(result)
+        return lamb(result)
     
     # Read each input line
     for line in sys.stdin:
@@ -41,10 +35,16 @@ if __name__ == '__main__':
             if line != "":
                 input.append(line)
         
+    usr_query=[]
     for line in input:
-        arr_line = line.split(',')
-        line_set = (array([int(arr_line[0]), int(arr_line[1])]), int(arr_line[2]))
-        train_set.append(line_set)
-    
+        if line.startswith("Q"):
+            arr_query = line.split("=")
+            values = arr_query[1].split(",")
+            usr_query.append(int(values[0]))
+            usr_query.append(int(values[1]))
+        else:
+            arr_line = line.split(',')
+            line_set = (array([int(arr_line[0]), int(arr_line[1])]), int(arr_line[2]))
+            train_set.append(line_set)
     train()
-    print(query(array([1,1])))
+    print(query(array(usr_query)))

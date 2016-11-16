@@ -1,0 +1,21 @@
+19. Lab: Implementing  Neural Networks
+Goal: understand how to create an ANN and the pros and cons of training it (6 hours)
+Lab
+Using WEKA load and run ANN (multilayer perceptron) example and analyse the inputs and outputs.
+Move around the factors such as learning rate, number of layers and number of nodes. 
+Record the behaviour of the network. We are interested in observing if it converges or not, 
+how long it takes to learn, and how precise it is. These measurements and comparisons should 
+be included in your report.
+Find an interesting training set in http://archive.ics.uci.edu/ml/datasets.html   and use 
+it to create test a network.
+Implement a single layer ANN (perceptron) using the language of your choosing and train 
+it to recognize something small. The user should be able to query the trained ANN 
+(i.e. supply inputs and get an output).
+
+Report
+Write a report using the comparisons collected by training the ANN with different 
+parameters. Include an image of the network and the parameters used as well as the 
+error and time it took to train each network. Write a brief reflection about what you 
+think is happening in the different ANNs. Other interesting aspects you could include 
+in your reflection are: Explanations as to what are ANNs good for. Where would you use 
+them? Are they worth the effort implementing or not? What kinds of problems do they not solve?

@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+#run < problem_file.in
+python ann.py

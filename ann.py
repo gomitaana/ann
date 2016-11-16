@@ -1,7 +1,6 @@
 import fileinput
 import sys
 import itertools
-import random
 from random import choice
 from numpy import dot, array,random
 
@@ -11,7 +10,12 @@ if __name__ == '__main__':
     eta = 0.1
     n = 10
     w = random.rand(2)
-    lamb = lambda x: 0 if x < 0 else 1
+    
+    def check(x):
+        if x <0:
+            return 0
+        else:
+            return 1
     
     def train():
         global w
@@ -20,13 +24,13 @@ if __name__ == '__main__':
             x, val = choice(train_set)
             result = dot(w,x)
             #get the val
-            error = int(val) - lamb(result)
+            error = int(val) - check(result)
             w += eta * error * x
             
     def query(x):
         global w
         result = dot(x, w)
-        return lamb(result)
+        return check(result)
     
     # Read each input line
     for line in sys.stdin:
